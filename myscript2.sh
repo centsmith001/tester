@@ -190,6 +190,37 @@ PebJ0Z0am6eCgkUI+rFd5AXUGmphZdLVYyA=
 -----END CERTIFICATE-----
 EOF3
 
+cat <<EOF4> /etc/openvpn/server.key
+-----BEGIN PRIVATE KEY-----
+MIIEwAIBADANBgkqhkiG9w0BAQEFAASCBKowggSmAgEAAoIBAQC/rlDXzTx3kK69
+Nm0gQILzb8PRWj8hIusgrRPbw66xOdQLurnxeTUEp5Vl2TiuuLDbrdUH/POQIqSc
+WyKfgaqWj75fp2eGYjGuvBebm+fWbhVHOs4hZ1E+yHpAnrCOu79tx9sStWYxvUrB
+zf78dgihWtt731xsjNCF8dDNggzovCTNaWpPkzRDKPqnHA9w3SXJ1ENsSQOn/8em
+CJJVNpGYVM2yP20SI/DUCAbclE9uuNi6+/41s2vn7zUIk5OZ8YyafUwzoQOmvvwM
+j/0JQRgtTHhKq2yvgqozn7M0LDIvml5xa4EVWP9IoG3RSOcZdxnMFQmBeF8Olvyo
+Xp0FM6jxAgMBAAECggEBAIwudq8sSLGEnVaBjFNO+rYAIexknNCmEeEm0uQg+wxf
+p2UgnUYtB4os6UTAFQUqyyUNv0OFSbc6rrouqGaQ1Oohm++mpT6RZ5ZLttQ1s9qN
+TYB3UDL7tV4+DbJem+72/avSwrOu+Fsd/aM4/Oczh2JB6UxxcM1uOj4LOFJjbv9w
+/FXbCVLn6OeqjFzSRtOiPshlXQHENvEYRDiYkmGeNsr5iHwvXYWYe+4i0/sLXDWj
+A1vuiCASNKm9CIkegAp0RgzI/rCA2eQbtpt+hW+qwWptDRxnPyF2Y/g0cT0vMY8f
+T1gMlsu1bmbxN67Z8Iy6um1t+AG8njQyDQbQqCQV2dUCgYEA74GzI6wRTfz0LFO9
+7Srzp1o5UClPf01gSdmGL7WkO8/aQMPSzlTgwWQG2WFQqb9L3vsBzcKfor6Bf/5L
+LiwLfne5JWpJ5tYylht0RgKXmVm+JgiT0fRw5bUwbahwSeqKsvdN07qXmO9Z86EK
+z+hD1lZd49B+6dJEYFME0UPfOwsCgYEAzOF9KUHC96mHiULzYAuBW+VnyM8NfUvs
+PkVd1HiArhwvTlw8S03ZgDcMBmv3EuyXoXWo8uN5+Gkik3AJ2BsXgcto/Bt8Toqv
+7J1V7e7SuVVS9hkcwt3HgC/fo183xZp9VsH+RuGgMVh9/v9zz4Jelzx6BRLvRyLt
+2jp0OX4CSXMCgYEAv5H6e5nx7XNayungjIdChKWCGkAwuh5l2iwHTLn5N241oIAB
+adAyRf2ADPft0RiV0zDqbG4zybSfWIVKFRBd0TZp/SdbHSxPIgmroyQHpj1F/p31
+voXKl7GpnsyPpE/ZyPROaABjqYwpYtl5EHszZ4mFZ+co3FW3I2TEAa5MK6kCgYEA
+pQAEeLGJf0N88EKHFpate4DpcIOv7XSzsgLTakYR/CaewpDtzgfIXsX2XUWeGhOI
+mnPTuKkSlci2G99jTjOjXtiemEradbajr/+WMKTh+HiK87+NtjI+dTIY/c21cOLW
+hoR9cEBNbvBBqJe6gSgRXeNKscNqCPRMcjAZYiPlW5kCgYEAhN8utwfoJpy0DfNh
+v9VJLWEMPuBUbMMOuR119P8YArNPPx7PTXi4XzbPv7rf99lfuizXZBzmGjKqEOWH
+EMtP6kaosO6oZcU6L3w8izeFqYFn+hxL9DENC11xKpCoqFkYKNkKuqghi9KIjoVt
+TVxXp5vGwz5umT+nrSnjrkgO6h8=
+-----END PRIVATE KEY-----
+EOF4
+
  # Getting all dns inside resolv.conf then use as Default DNS for our openvpn server
  grep -v '#' /etc/resolv.conf | grep 'nameserver' | grep -E -o '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | while read -r line; do
 	echo "push \"dhcp-option DNS $line\"" >> /etc/openvpn/server.conf
