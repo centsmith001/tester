@@ -230,7 +230,7 @@ done
  sed -i 's/openvpn_port/$openvpn_port/g' /etc/openvpn/server.conf 
 
  # Generating openvpn dh.pem file using openssl
- openssl dhparam -out /etc/openvpn/dh.pem 1024
+ openssl dhparam -out /etc/openvpn/dh.pem 2048
 
  # Some workaround for OpenVZ machines for "Startup error" openvpn service
  if [[ "$(hostnamectl | grep -i Virtualization | awk '{print $2}' | head -n1)" == 'openvz' ]]; then
