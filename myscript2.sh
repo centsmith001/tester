@@ -31,9 +31,9 @@ cat <<EOF1> /etc/openvpn/server.conf
 port $openvpn_port
 proto tcp
 dev tun
-ca /usr/share/doc/openvpn/examples/sample-keys/ca.crt
+ca /etc/openvpn/ca.crt
 cert /etc/openvpn/server.crt
-key /etc/openvpn/easy-rsa/keys/server.key
+key /etc/openvpn/server.key
 dh /etc/openvpn/dh.pem
 server 10.8.0.0 255.255.255.0
 push "redirect-gateway def1"
@@ -235,15 +235,16 @@ function OpenvpnConfig (){
 mkdir /etc/openvpn
 mkdir /etc/openvpn/server.conf
 mkdir /etc/openvpn/xFocus
+mkdir /etc/openvpn/dh.pem
 
 #setting configuration
 cat <<EOF5> /etc/openvpn/server.conf
 port $openvpn_port
 proto tcp
 dev tun
-ca /usr/share/doc/openvpn/examples/sample-keys/ca.crt
+ca /etc/openvpn/ca.crt
 cert /etc/openvpn/server.crt
-key /etc/openvpn/easy-rsa/keys/server.key
+key /etc/openvpn/server.key
 dh /etc/openvpn/dh.pem
 server 10.8.0.0 255.255.255.0
 push "redirect-gateway def1"
@@ -290,7 +291,6 @@ setenv CLIENT_CERT 0
 reneg-sec 0
 verb 3
 http-proxy $IPADDR $privoxy_port1
-http-proxy mpl.mobilelegends.com.iderf-freeuser.ml 3233
 http-proxy-option VERSION 1.1
 http-proxy-option CUSTOM-HEADER "Host: akmstatic.ml.youngjoygame.com.akamaized.net"
 http-proxy-option CUSTOM-HEADER "X-Online-Host: akmstatic.ml.youngjoygame.com.akamaized.net"
